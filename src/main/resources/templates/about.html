@@ -1,10 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
+<html lang="en" class="scroll-smooth">
+<head th:replace="~{fragment::head}"></head>
+    <style>
+        /* Use Poppins for headings, Inter for body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Lighter gray background */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Page Header Gradient */
+        .page-header-gradient {
+            background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Scrolled Header Style */
+        .header-scrolled {
+            background-color: white !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+            border-bottom: 0px;
+        }
+        .header-scrolled .nav-link {
+            color: #374151 !important; /* text-gray-700 */
+        }
+        .header-scrolled .nav-link:hover {
+            color: #4f46e5 !important; /* text-indigo-600 */
+        }
+        .header-scrolled .brand-text {
+            color: #1f2937 !important; /* text-gray-800 */
+        }
+        .header-scrolled .brand-span {
+            color: #4f46e5 !important; /* text-indigo-600 */
+        }
+        .header-scrolled .social-icon {
+            color: #4b5563 !important; /* text-gray-600 */
+        }
+        .header-scrolled .social-icon:hover {
+            color: #4f46e5 !important; /* text-indigo-600 */
+        }
+        .header-scrolled .mobile-btn {
+            color: #1f2937 !important; /* text-gray-800 */
+        }
+
+        /* Active Nav Link */
+        .nav-link-active {
+            color: #6366F1 !important; /* text-indigo-600 */
+        }
+        .header-scrolled .nav-link-active {
+            color: #4f46e5 !important; /* text-indigo-600 */
+            border-bottom: 2px solid #4f46e5;
+            padding-bottom: 2px;
+        }
+
+        /* Timeline Styling */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 2.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            width: 1.25rem; /* 20px */
+            height: 1.25rem; /* 20px */
+            border-radius: 9999px; /* full */
+            background-color: #6366F1; /* indigo-600 */
+            border: 4px solid #e0e7ff; /* indigo-100 */
+            z-index: 10;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.5rem; /* 8px */
+            top: 0.25rem;
+            bottom: 0;
+            width: 4px; /* 4px */
+            background-color: #c7d2fe; /* indigo-200 */
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+<body class="bg-gray-100 text-gray-900">
+
+<header th:replace="~{fragment::header}"></header>
+<!-- Main Content -->
+<main>
+
+    <!-- Page Header Section -->
+    <section class="page-header-gradient text-white pt-32 pb-16 md:pt-40 md:pb-24">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4">About Us</h1>
+            <p class="text-xl md:text-2xl text-indigo-200 max-w-3xl mx-auto">
+                Four decades of advertising legacy, reimagined for the digital age.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Timeline -->
+                <div data-aos="fade-right">
+                    <h2 class="text-5xl font-extrabold mb-8 text-gray-800">Our Story</h2>
+                    <div class="timeline">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <h3 class="text-2xl font-bold text-indigo-700 mb-1">1985 - The Beginning</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Founded in Barabanki, "The Advertisers" opens its doors, focusing on high-quality audio production for local businesses and public announcements.
+                            </p>
+                        </div>
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <h3 class="text-2xl font-bold text-indigo-700 mb-1">2000s - Building a Legacy</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Became the trusted voice for major campaigns, from "Chunao Prachar" to large-scale school and hospital advertisements, building a 40+ year legacy of trust.
+                            </p>
+                        </div>
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <h3 class="text-2xl font-bold text-indigo-700 mb-1">2020s - The Next Generation</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                The next generation joins, bringing software engineering expertise. We expand our services to include video ads and modern web development (Spring Boot, Python, AI).
+                            </p>
+                        </div>
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item">
+                            <h3 class="text-2xl font-bold text-indigo-700 mb-1">Today - Nationwide Reach</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                We now serve clients all over India and the world through our seamless remote production process, blending our rich history with cutting-edge technology.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
+                    <img src="https://placehold.co/500x600/6366F1/FFFFFF?text=Our+Studio" alt="The Advertisers Studio" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section id="team" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-5xl font-extrabold mb-3 text-gray-800">Meet Our Leadership</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">The minds guiding our creative and technical vision.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+
+                <!-- Profile Card 1: Waseem Khan -->
+                <div class="bg-white rounded-xl shadow-lg text-center p-8 transition-all duration-500 transform hover:shadow-2xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://placehold.co/150x150/6366F1/FFFFFF?text=W+K" alt="Waseem Khan" class="w-40 h-40 rounded-full mx-auto mb-6 shadow-lg border-4 border-indigo-200">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-1">Waseem Khan</h3>
+                    <p class="text-xl font-semibold text-indigo-600 mb-4">Director</p>
+                    <p class="text-gray-600 leading-relaxed">
+                        As the founder and director, Waseem has guided "The Advertisers" for over 40 years. His unparalleled experience in audio production and deep understanding of the market ensure every project meets our highest standards of quality.
+                    </p>
+                </div>
+
+                <!-- Profile Card 2: Nadeem Khan -->
+                <div class="bg-white rounded-xl shadow-lg text-center p-8 transition-all duration-500 transform hover:shadow-2xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://placehold.co/150x150/4A5568/FFFFFF?text=N+K" alt="Nadeem Khan" class="w-40 h-40 rounded-full mx-auto mb-6 shadow-lg border-4 border-gray-200">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-1">Nadeem Khan</h3>
+                    <p class="text-xl font-semibold text-gray-600 mb-4">Manager</p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nadeem manages our client relations and day-to-day operations. He is the bridge between your vision and our production team, ensuring a smooth process, clear communication, and timely delivery for every client, near or far.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- "Why Choose Us?" Section (Re-used) -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-5xl font-extrabold mb-3 text-gray-800">Why Partner With Us?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Blending decades of trust with the technology of tomorrow.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">40+ Years of Trust</h3>
+                    <p class="text-gray-600">Our family's legacy in Barabanki is built on four decades of proven quality and reliability.</p>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Modern Tech Stack</h3>
+                    <p class="text-gray-600">We merge audio expertise with modern software engineering (Spring Boot, Python, AI) for digital success.</p>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Nationwide Service</h3>
+                    <p class="text-gray-600">Our seamless remote process allows us to serve clients across India and the world.</p>
+                </div>
+                <!-- Feature Card 4 -->
+                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Broadcast Quality</h3>
+                    <p class="text-gray-600">We deliver market-best production quality, ready for radio, social media, or any platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-indigo-700 py-16 text-white text-center" data-aos="zoom-in-up">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Ready to Amplify Your Message?</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Let "The Advertisers" help you create compelling audio, engaging video, and a powerful online presence.
+            </p>
+            <a href="index.html#contact" class="inline-block bg-white text-indigo-800 px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+                Request a Free Consultation
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer th:replace="~{fragment :: footer}"></footer>
+
+<div th:replace="~{fragment :: js}"></div>
+
 </body>
 </html>
