@@ -1,0 +1,16 @@
+# Ignore build artifacts
+target/
+
+# Ignore IDE configuration files
+.idea/
+*.iml
+
+# Ignore logs
+*.log
+
+# Ignore temporary or system files
+.DS_Store
+
+# Ignore Git-related files
+.git
+.gitignore
