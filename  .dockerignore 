@@ -1,16 +1,41 @@
-# Ignore build artifacts
+# Ignore Maven build artifacts
 target/
+!target/*.jar        # keep only final JAR if you build locally before Docker build
 
-# Ignore IDE configuration files
+# Ignore IDE / local settings
 .idea/
 *.iml
+.vscode/
+*.swp
 
-# Ignore logs
+# Ignore logs and temporary files
 *.log
+*.tmp
+*.bak
 
-# Ignore temporary or system files
+# Ignore macOS & system files
 .DS_Store
+Thumbs.db
 
 # Ignore Git-related files
 .git
 .gitignore
+
+# Ignore environment and credentials
+.env
+*.secret
+*.key
+*.pem
+
+# Ignore node or frontend build (if future React UI added)
+node_modules/
+dist/
+build/
+
+# Ignore test outputs
+test-output/
+surefire-reports/
+
+# Ignore Docker’s own intermediate files
+docker-compose.yml
+Dockerfile.dev
