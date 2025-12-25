@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head th:replace="~{fragment::head}"></head>
+<style>
+    .toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        padding: 16px 22px;
+        border-radius: 10px;
+        font-weight: 600;
+        color: #fff;
+        z-index: 9999;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        animation: slideIn 0.4s ease;
+    }
+
+    .toast.success { background: #16a34a; }
+    .toast.error { background: #dc2626; }
+    .toast.hidden { display: none; }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+</style>
+
 <body class="bg-gray-100 text-gray-900">
 
 <header th:replace="~{fragment::header}"></header>
@@ -295,7 +319,7 @@
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
                 Let "The Advertisers" help you create compelling audio, engaging video, and a powerful online presence.
             </p>
-            <a href="#contact" class="inline-block bg-white text-indigo-800 px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+            <a href="/the-advertisers/contact" class="inline-block bg-white text-indigo-800 px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-200 transition duration-300 transform hover:scale-105">
                 Request a Free Consultation
             </a>
         </div>
@@ -360,9 +384,11 @@
 
                 <p id="form-status" class="text-center text-gray-700 mt-4"></p>
             </form>
+
         </div>
     </section>
 </main>
+<div id="toast" class="toast hidden"></div>
 
 <!-- Footer -->
 <footer th:replace="~{fragment :: footer}"></footer>
