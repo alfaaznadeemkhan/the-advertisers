@@ -30,7 +30,10 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
 # Set Java memory optimizations (tune as needed)
-ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Dfile.encoding=UTF-8"
+#ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Dfile.encoding=UTF-8
+
+ENV JAVA_OPTS="-Xms128m -Xmx256m -XX:+UseSerialGC -Dfile.encoding=UTF-8"
+
 
 # Run the Spring Boot app, using Render's PORT if available
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar --server.port=${PORT:-8080}"]
