@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/the-advertisers")
+@RequestMapping("/")
 public class PageController {
 
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "/home")
     public String home() {
 
         return "home";

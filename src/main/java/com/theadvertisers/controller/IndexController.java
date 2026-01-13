@@ -11,7 +11,7 @@ public class IndexController {
     @GetMapping("/")
     public String redirect() {
 
-        return "redirect:/the-advertisers/";
+        return "redirect:/home";
     }
 
 }
