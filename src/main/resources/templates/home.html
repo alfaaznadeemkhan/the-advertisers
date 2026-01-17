@@ -23,6 +23,29 @@
         from { transform: translateX(100%); opacity: 0; }
         to { transform: translateX(0); opacity: 1; }
     }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    .perspective-1000 {
+        perspective: 1000px;
+    }
 </style>
 
 <body class="bg-gray-100 text-gray-900">
@@ -56,138 +79,288 @@
         </a>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-5xl font-extrabold mb-3 text-gray-800">Our Production Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">From captivating audio jingles to engaging social media shorts and robust web solutions.</p>
+    <section id="services" class="relative py-28 bg-[#050505] overflow-hidden">
+
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[100px] animate-pulse animation-delay-2000"></div>
+            <div class="absolute inset-0 opacity-[0.15] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <div class="text-center mb-20" data-aos="fade-down">
+            <span class="inline-block py-1 px-3 rounded-full bg-gray-800/50 border border-gray-700 text-gray-400 text-xs font-bold tracking-widest uppercase mb-4 backdrop-blur-md">
+                What We Do
+            </span>
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+                    Crafting <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">Digital Reality.</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                    We merge sonic artistry, visual storytelling, and software engineering to build brands that dominate the modern landscape.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Service Card 1: Audio Production -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group border-b-4 border-transparent hover:border-indigo-600" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <!-- Icon: Microphone -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                        </svg>
+                <div class="group relative p-1 rounded-[2.5rem] bg-gradient-to-b from-white/10 to-transparent hover:from-indigo-500/50 transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-full bg-gray-900/80 backdrop-blur-xl rounded-[2.3rem] p-8 overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-colors duration-500">
+
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-600/30 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative w-20 h-20 mb-8 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-700 shadow-lg shadow-indigo-500/30 flex items-center justify-center transform group-hover:-translate-y-2 group-hover:rotate-6 transition-transform duration-500 z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                            </svg>
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent to-white/20 pointer-events-none"></div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-indigo-300 transition-colors">Sonic Branding</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6 relative z-10 text-sm">
+                            Hyper-realistic audio production. From <strong>political campaign anthems</strong> to <strong>retail jingles</strong>, we design soundscapes that trigger memory and emotion.
+                        </p>
+
+                        <div class="flex items-center text-indigo-400 font-bold text-sm group/link cursor-pointer">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800 group-hover:text-indigo-700 transition-colors duration-300 text-center">Custom Audio Advertising</h3>
-                    <p class="text-gray-600 text-center">
-                        Professional voice-overs, catchy jingles, and impactful sound design for schools, hospitals, election campaigns, and retail.
-                    </p>
                 </div>
 
-                <!-- Service Card 2: Video Production -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group border-b-4 border-transparent hover:border-indigo-600" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <!-- Icon: Video Camera -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z" />
-                        </svg>
+                <div class="group relative p-1 rounded-[2.5rem] bg-gradient-to-b from-white/10 to-transparent hover:from-purple-500/50 transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-full bg-gray-900/80 backdrop-blur-xl rounded-[2.3rem] p-8 overflow-hidden border border-white/5 hover:border-purple-500/30 transition-colors duration-500">
+
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-600/30 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative w-20 h-20 mb-8 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg shadow-purple-500/30 flex items-center justify-center transform group-hover:-translate-y-2 group-hover:-rotate-3 transition-transform duration-500 z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 8h11a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z" />
+                            </svg>
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent to-white/20 pointer-events-none"></div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-purple-300 transition-colors">Visual Storytelling</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6 relative z-10 text-sm">
+                            High-octane visuals optimized for the scroll. We craft <strong>Reels, Shorts, and Ads</strong> that stop thumbs and drive immediate engagement on social platforms.
+                        </p>
+
+                        <div class="flex items-center text-purple-400 font-bold text-sm group/link cursor-pointer">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800 group-hover:text-indigo-700 transition-colors duration-300 text-center">Social Media Video Ads</h3>
-                    <p class="text-gray-600 text-center">
-                        Crafting short, dynamic video ads optimized for platforms like Facebook, Instagram, and YouTube to maximize your reach.
-                    </p>
                 </div>
 
-                <!-- Service Card 3: Web Development -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group border-b-4 border-transparent hover:border-indigo-600" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <!-- Icon: Code/Desktop -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                <div class="group relative p-1 rounded-[2.5rem] bg-gradient-to-b from-white/10 to-transparent hover:from-cyan-500/50 transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-full bg-gray-900/80 backdrop-blur-xl rounded-[2.3rem] p-8 overflow-hidden border border-white/5 hover:border-cyan-500/30 transition-colors duration-500">
+
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-600/30 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <div class="relative w-20 h-20 mb-8 rounded-2xl bg-gradient-to-br from-cyan-500 to-emerald-600 shadow-lg shadow-cyan-500/30 flex items-center justify-center transform group-hover:-translate-y-2 group-hover:rotate-6 transition-transform duration-500 z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent to-white/20 pointer-events-none"></div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-cyan-300 transition-colors">Next-Gen Engineering</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6 relative z-10 text-sm">
+                            Future-proof infrastructure. We build scalable <strong>Spring Boot backends</strong> and integrate <strong>AI Models</strong> to create intelligent, lightning-fast web experiences.
+                        </p>
+
+                        <div class="flex items-center text-cyan-400 font-bold text-sm group/link cursor-pointer">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800 group-hover:text-indigo-700 transition-colors duration-300 text-center">Modern Website Development</h3>
-                    <p class="text-gray-600 text-center">
-                        Leverage cutting-edge tech (Spring Boot, HTML, CSS, JS, Python/AI) to build fast, beautiful, and scalable websites that grow with your business.
-                    </p>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- NEW "Why Choose Us?" Section -->
-    <section id="why-us" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-5xl font-extrabold mb-3 text-gray-800">Why Partner With Us?</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Blending decades of trust with the technology of tomorrow.</p>
+    <section id="why-us" class="py-24 bg-[#080c14] relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[128px] opacity-40 mix-blend-screen"></div>
+            <div class="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[128px] opacity-40 mix-blend-screen"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-down">
+                <span class="text-indigo-400 font-bold tracking-widest uppercase text-sm mb-4 block">The Advantage</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight">
+                    Why Partner With <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Us?</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    Blending four decades of proven trust with the cutting-edge technology of tomorrow.
+                </p>
             </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature Card 1 -->
-                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+
+                <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-full bg-gray-900/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-indigo-900/30">
+
+                        <div class="relative w-24 h-24 mx-auto mb-8">
+                            <div class="absolute inset-0 bg-indigo-500/40 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60"></div>
+                            <div class="relative h-full w-full bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl flex items-center justify-center shadow-lg border border-white/20 transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="text-center relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors">40+ Years of Trust</h3>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                Our family's legacy in Barabanki is built on four decades of proven quality and reliability.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">40+ Years of Trust</h3>
-                    <p class="text-gray-600">Our family's legacy in Barabanki is built on four decades of proven quality and reliability.</p>
                 </div>
-                <!-- Feature Card 2 -->
-                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+
+                <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-full bg-gray-900/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-purple-900/30">
+
+                        <div class="relative w-24 h-24 mx-auto mb-8">
+                            <div class="absolute inset-0 bg-purple-500/40 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60"></div>
+                            <div class="relative h-full w-full bg-gradient-to-br from-purple-600 to-pink-700 rounded-2xl flex items-center justify-center shadow-lg border border-white/20 transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="text-center relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-purple-300 transition-colors">Modern Tech Stack</h3>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                Blending professional audio with advanced engineering (Spring Boot, Python, AI) for scalable success.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Modern Tech Stack</h3>
-                    <p class="text-gray-600">We merge audio expertise with modern software engineering (Spring Boot, Python, AI) for digital success.</p>
                 </div>
-                <!-- Feature Card 3 -->
-                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+
+                <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-full bg-gray-900/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-blue-900/30">
+
+                        <div class="relative w-24 h-24 mx-auto mb-8">
+                            <div class="absolute inset-0 bg-blue-500/40 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60"></div>
+                            <div class="relative h-full w-full bg-gradient-to-br from-blue-600 to-cyan-700 rounded-2xl flex items-center justify-center shadow-lg border border-white/20 transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="text-center relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-blue-300 transition-colors">Nationwide Service</h3>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                Our seamless remote process allows us to serve clients effectively across India and the world.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Nationwide Service</h3>
-                    <p class="text-gray-600">Our seamless remote process allows us to serve clients across India and the world.</p>
                 </div>
-                <!-- Feature Card 4 -->
-                <div class="text-center p-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+
+                <div class="group relative" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative h-full bg-gray-900/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-emerald-900/30">
+
+                        <div class="relative w-24 h-24 mx-auto mb-8">
+                            <div class="absolute inset-0 bg-emerald-500/40 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60"></div>
+                            <div class="relative h-full w-full bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl flex items-center justify-center shadow-lg border border-white/20 transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="text-center relative z-10">
+                            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-emerald-300 transition-colors">Broadcast Quality</h3>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                We deliver market-best production quality, ready for radio, social media, or any platform.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Broadcast Quality</h3>
-                    <p class="text-gray-600">We deliver market-best production quality, ready for radio, social media, or any platform.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
 
     <!-- About Us Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <!-- Placeholder for an image, e.g., of the studio or the team -->
-                <div class="bg-indigo-100 rounded-3xl shadow-xl w-full h-80 flex items-center justify-center text-indigo-500 border-4 border-indigo-200 overflow-hidden relative">
-                    <!-- Example: a stylized sound wave graphic or studio interior -->
-                    <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#6366F1" d="M49.2,-72.5C65.5,-63.9,80.6,-50,86.1,-32.7C91.6,-15.4,87.6,5.3,79.5,24.3C71.3,43.2,59.1,60.4,43.5,69.5C27.9,78.7,9,79.9,-8.8,77.7C-26.7,75.6,-43.6,70.1,-56,59.3C-68.3,48.5,-76,32.4,-79.8,14.6C-83.6,-3.2,-83.5,-22.7,-74.6,-36.8C-65.7,-50.9,-48.1,-59.6,-30.9,-65.4C-13.7,-71.2,2.9,-74,19.2,-74.8C35.5,-75.7,42.9,-74.3,49.2,-72.5Z" transform="translate(100 100)" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.897 12.897C19.897 14.982 18.239 16.64 16.154 16.64H7.846C5.761 16.64 4.103 14.982 4.103 12.897V7.103C4.103 5.018 5.761 3.36 7.846 3.36H16.154C18.239 3.36 19.897 5.018 19.897 7.103V12.897ZM12 19.64V21.64M9 19.64H15" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17.64C12 17.64 10.364 17.209 9.364 16.209C8.364 15.209 8 13.897 8 12.897" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17.64C12 17.64 13.636 17.209 14.636 16.209C15.636 15.209 16 13.897 16 12.897" />
-                    </svg>
-                    <span class="ml-4 text-2xl font-bold relative z-10">Our Studio</span>
+    <section id="about" class="relative py-24 bg-[#0a0a0a] overflow-hidden">
+
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-900/20 rounded-full blur-[120px] mix-blend-screen opacity-60"></div>
+            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[100px] mix-blend-screen opacity-50"></div>
+            <div class="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center perspective-1000">
+
+                <div class="relative group" data-aos="fade-right">
+
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-[2rem] transform translate-x-4 translate-y-4 blur-sm opacity-60 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+
+                    <div class="relative h-[500px] w-full bg-gray-900 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transform transition-transform duration-700 ease-out group-hover:scale-[1.02] group-hover:-rotate-1">
+                        <img src="/images/studio.jpg"
+                             alt="The Advertisers Studio"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110 group-hover:scale-100"
+                        />
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="absolute -bottom-8 -right-8 md:bottom-10 md:-right-10 z-20 animate-float">
+                        <div class="bg-gray-800/80 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl shadow-black/50">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-500/50">
+                                    40+
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase tracking-widest font-bold">Years of Excellence</p>
+                                    <p class="text-xl font-bold text-white">Since 1986</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div data-aos="fade-left" data-aos-delay="200">
-                <h2 class="text-5xl font-extrabold mb-4 text-gray-800">Barabanki's Legacy, India's Future</h2>
-                <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                    For <span class="font-bold text-indigo-700">over 40 years</span>, "The Advertisers" has been synonymous with quality and trust in Barabanki. From local businesses to significant campaigns, our audio production has shaped the voices of countless brands.
-                </p>
-                <p class="text-gray-700 text-lg mb-6 leading-relaxed">
-                    Now, the next generation joins with a fresh perspective. As a software engineer, I'm integrating modern web development and digital strategies, ensuring your business not only sounds great but also shines brilliantly online. We're bridging traditional excellence with cutting-edge innovation.
-                </p>
-                <a href="#contact" class="text-indigo-600 font-semibold text-lg hover:underline transition duration-300">
-                    Connect with Our Team &rarr;
-                </a>
+
+                <div data-aos="fade-left" data-aos-delay="200">
+
+                <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold tracking-[0.2em] uppercase mb-6">
+                    Our Origin Story
+                </span>
+
+                    <h2 class="text-5xl md:text-6xl font-black text-white mb-8 leading-tight">
+                        Barabanki's Legacy, <br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">India's Future.</span>
+                    </h2>
+
+                    <div class="p-8 rounded-3xl bg-white/5 border border-white/5 backdrop-blur-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-indigo-500/30 transition-colors duration-500"></div>
+
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed relative z-10">
+                            For <span class="text-white font-bold border-b-2 border-indigo-500">over 40 years</span>, "The Advertisers" has been the heartbeat of Barabanki's media landscape. From powering local businesses to amplifying major political campaigns, our audio production has shaped the narrative of countless brands.
+                        </p>
+
+                        <p class="text-lg text-gray-300 mb-8 leading-relaxed relative z-10">
+                            Today, a new chapter begins. By fusing our traditional mastery with <span class="text-cyan-400 font-bold">Software Engineering & AI</span>, we aren't just making you sound good—we're building your entire digital infrastructure.
+                        </p>
+
+                        <a href="#contact" class="inline-flex items-center group/btn text-white font-bold tracking-wide">
+                            <span class="border-b border-indigo-500 pb-1 group-hover/btn:border-cyan-400 transition-colors duration-300">Connect with the Team</span>
+                            <svg class="w-5 h-5 ml-2 text-indigo-500 transform group-hover/btn:translate-x-2 group-hover/btn:text-cyan-400 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- How It Works (Process) Section -->
     <section id="process" class="py-20 bg-white">
@@ -254,74 +427,211 @@
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">A glimpse into our diverse portfolio of impactful audio and video advertising projects.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Portfolio Item 1 (Mock) -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-indigo-700">Barabanki City Hospital</h3>
-                        <p class="text-md text-indigo-600 font-semibold mb-4">Service: Public Service Announcement (Audio)</p>
-                        <p class="text-gray-700 mb-6 leading-relaxed">"A compelling and professional audio spot that effectively communicated vital health information to the community."</p>
-                        <!-- Mock audio player -->
-                        <div class="bg-gray-100 p-4 rounded-xl flex items-center space-x-4">
-                            <button class="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition duration-300 transform hover:scale-110 shadow-lg group-hover:shadow-indigo-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
-                            <div class="w-full h-2 bg-indigo-200 rounded-full">
-                                <div class="h-full bg-indigo-600 rounded-full w-1/2"></div> <!-- Example progress -->
-                            </div>
-                            <span class="text-sm text-gray-600">0:30</span>
+<!--            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">-->
+<!--                &lt;!&ndash; Portfolio Item 1 (Mock) &ndash;&gt;-->
+<!--                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">-->
+<!--                    <div class="p-8">-->
+<!--                        <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-indigo-700">Barabanki City Hospital</h3>-->
+<!--                        <p class="text-md text-indigo-600 font-semibold mb-4">Service: Public Service Announcement (Audio)</p>-->
+<!--                        <p class="text-gray-700 mb-6 leading-relaxed">"A compelling and professional audio spot that effectively communicated vital health information to the community."</p>-->
+<!--                        &lt;!&ndash; Mock audio player &ndash;&gt;-->
+<!--                        <div class="bg-gray-100 p-4 rounded-xl flex items-center space-x-4">-->
+<!--                            <button class="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition duration-300 transform hover:scale-110 shadow-lg group-hover:shadow-indigo-300">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>-->
+<!--                            </button>-->
+<!--                            <div class="w-full h-2 bg-indigo-200 rounded-full">-->
+<!--                                <div class="h-full bg-indigo-600 rounded-full w-1/2"></div> &lt;!&ndash; Example progress &ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <span class="text-sm text-gray-600">0:30</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Portfolio Item 2 (Mock) &ndash;&gt;-->
+<!--                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">-->
+<!--                    <div class="p-8">-->
+<!--                        <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-indigo-700">Election Campaign "Voice"</h3>-->
+<!--                        <p class="text-md text-indigo-600 font-semibold mb-4">Service: Political "Chunao Prachar" (Audio)</p>-->
+<!--                        <p class="text-gray-700 mb-6 leading-relaxed">"An energetic and memorable jingle and voiceover, crucial for reaching voters during a local election campaign."</p>-->
+<!--                        &lt;!&ndash; Mock audio player &ndash;&gt;-->
+<!--                        <div class="bg-gray-100 p-4 rounded-xl flex items-center space-x-4">-->
+<!--                            <button class="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition duration-300 transform hover:scale-110 shadow-lg group-hover:shadow-indigo-300">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>-->
+<!--                            </button>-->
+<!--                            <div class="w-full h-2 bg-indigo-200 rounded-full">-->
+<!--                                <div class="h-full bg-indigo-600 rounded-full w-3/4"></div> &lt;!&ndash; Example progress &ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <span class="text-sm text-gray-600">0:45</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Portfolio Item 3 (Mock) &ndash;&gt;-->
+<!--                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">-->
+<!--                    <div class="p-8">-->
+<!--                        <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-indigo-700">Sharma Sweets</h3>-->
+<!--                        <p class="text-md text-indigo-600 font-semibold mb-4">Service: Social Media Video Ad</p>-->
+<!--                        <p class="text-gray-700 mb-6 leading-relaxed">"A visually appealing and enticing 15-second video ad that boosted their online engagement and festive sales."</p>-->
+<!--                        &lt;!&ndash; Mock video player &ndash;&gt;-->
+<!--                        <div class="bg-gray-800 p-4 rounded-xl flex items-center justify-center h-32 text-white relative overflow-hidden">-->
+<!--                            <div class="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://placehold.co/400x200/4F46E5/FFFFFF?text=Video+Thumbnail');"></div>-->
+<!--                            <button class="bg-white text-indigo-600 p-4 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-110 relative z-10 shadow-2xl">-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative w-full aspect-video bg-black group-hover:opacity-95 transition-opacity">
+                        <iframe
+                                class="absolute inset-0 w-full h-full object-cover"
+                                src="https://www.youtube.com/embed/66G3ClDs770?rel=0"
+                                title="Amrit Dhara Milk Commercial"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                    FMCG Audio Ad
+                </span>
+                            <span class="text-gray-400 text-xs">0:42</span>
                         </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+                            Amrit Dhara Milk Commercial
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            "A refreshing audio narrative capturing the purity of fresh dairy. This spot was designed to build daily brand recall and trust among local households."
+                        </p>
                     </div>
                 </div>
 
-                <!-- Portfolio Item 2 (Mock) -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-indigo-700">Election Campaign "Voice"</h3>
-                        <p class="text-md text-indigo-600 font-semibold mb-4">Service: Political "Chunao Prachar" (Audio)</p>
-                        <p class="text-gray-700 mb-6 leading-relaxed">"An energetic and memorable jingle and voiceover, crucial for reaching voters during a local election campaign."</p>
-                        <!-- Mock audio player -->
-                        <div class="bg-gray-100 p-4 rounded-xl flex items-center space-x-4">
-                            <button class="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition duration-300 transform hover:scale-110 shadow-lg group-hover:shadow-indigo-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
-                            <div class="w-full h-2 bg-indigo-200 rounded-full">
-                                <div class="h-full bg-indigo-600 rounded-full w-3/4"></div> <!-- Example progress -->
-                            </div>
-                            <span class="text-sm text-gray-600">0:45</span>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative w-full aspect-video bg-black group-hover:opacity-95 transition-opacity">
+                        <iframe
+                                class="absolute inset-0 w-full h-full object-cover"
+                                src="https://www.youtube.com/embed/2e24lFmLAaY?rel=0"
+                                title="LED Bulb Sales Campaign"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                    Retail Promotion
+                </span>
+                            <span class="text-gray-400 text-xs">0:55</span>
                         </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+                            LED Bulb Sales Campaign
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            "High-energy voiceover combined with urgent sound design. This campaign effectively highlighted energy savings, driving immediate footfall for the retail outlet."
+                        </p>
                     </div>
                 </div>
 
-                <!-- Portfolio Item 3 (Mock) -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-800 group-hover:text-indigo-700">Sharma Sweets</h3>
-                        <p class="text-md text-indigo-600 font-semibold mb-4">Service: Social Media Video Ad</p>
-                        <p class="text-gray-700 mb-6 leading-relaxed">"A visually appealing and enticing 15-second video ad that boosted their online engagement and festive sales."</p>
-                        <!-- Mock video player -->
-                        <div class="bg-gray-800 p-4 rounded-xl flex items-center justify-center h-32 text-white relative overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-60 transition-transform duration-500 group-hover:scale-110" style="background-image: url('https://placehold.co/400x200/4F46E5/FFFFFF?text=Video+Thumbnail');"></div>
-                            <button class="bg-white text-indigo-600 p-4 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-110 relative z-10 shadow-2xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative w-full aspect-video bg-black group-hover:opacity-95 transition-opacity">
+                        <iframe
+                                class="absolute inset-0 w-full h-full object-cover"
+                                src="https://www.youtube.com/embed/xnjC2uRXvwA?rel=0"
+                                title="Fashion Store Festive Sale"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                <span class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                    Apparel Branding
+                </span>
+                            <span class="text-gray-400 text-xs">0:38</span>
                         </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+                            Fashion Store Festive Sale
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            "Style meets savings. A trendy and upbeat commercial produced to capture the festive spirit and attract fashion-forward shoppers during the holiday season."
+                        </p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="bg-indigo-700 py-16 text-white text-center" data-aos="zoom-in-up">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Ready to Amplify Your Message?</h2>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                Let "The Advertisers" help you create compelling audio, engaging video, and a powerful online presence.
-            </p>
-            <a href="/contact" class="inline-block bg-white text-indigo-800 px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-200 transition duration-300 transform hover:scale-105">
-                Request a Free Consultation
-            </a>
+    <section class="relative py-32 bg-[#020205] overflow-hidden flex items-center justify-center">
+
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-indigo-600/10 rounded-full blur-[150px] animate-pulse"></div>
+            <div class="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <div class="relative max-w-5xl mx-auto group perspective-1000" data-aos="zoom-in-up">
+
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-[3rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+
+                <div class="relative bg-gray-900/40 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-12 md:p-20 text-center overflow-hidden shadow-2xl">
+
+                    <div class="absolute top-10 left-10 w-24 h-24 bg-indigo-500/20 rounded-full blur-2xl animate-bounce animation-delay-1000"></div>
+                    <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl animate-bounce"></div>
+
+                    <div class="relative z-10">
+
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/10 mb-8 backdrop-blur-md shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-400"></span>
+                        </span>
+                            <span class="text-indigo-200 font-bold tracking-[0.2em] uppercase text-xs">Project Intake Open</span>
+                        </div>
+
+                        <h2 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight drop-shadow-2xl">
+                            Ready to <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-white to-purple-400">Amplify</span> <br>
+                            Your Message?
+                        </h2>
+
+                        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                            Let "The Advertisers" deploy <span class="text-white font-medium">cinematic audio</span>, <span class="text-white font-medium">viral video</span>, and <span class="text-white font-medium">next-gen code</span> to scale your brand.
+                        </p>
+
+                        <div class="relative inline-block group/btn">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur opacity-60 group-hover/btn:opacity-100 transition duration-500"></div>
+
+                            <a href="/contact" class="relative block bg-white text-gray-900 px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-[inset_0_-4px_4px_rgba(0,0,0,0.1)]">
+                            <span class="flex items-center gap-3">
+                                Request Free Consultation
+                                <svg class="w-5 h-5 text-indigo-600 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                            </span>
+                            </a>
+                        </div>
+
+                        <p class="mt-6 text-sm text-gray-500 font-medium tracking-wide">
+                            Join 500+ Clients • No Commitments Required
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="absolute -top-12 -left-12 w-32 h-32 border-4 border-indigo-500/30 rounded-full hidden md:block animate-[spin_10s_linear_infinite]"></div>
+                <div class="absolute -bottom-8 -right-8 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full shadow-2xl hidden md:block animate-float"></div>
+
+            </div>
         </div>
     </section>
 
@@ -334,22 +644,57 @@
                 <p class="text-lg text-indigo-200 mb-8 leading-relaxed">
                     Whether you're in Barabanki or anywhere across the globe, our team is ready to transform your ideas into outstanding advertising. Reach out today!
                 </p>
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <!-- Icon: Location -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-300 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <address class="text-lg not-italic">Barabanki, Uttar Pradesh, India</address>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <!-- Icon: Mail -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-300 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                        <a href="mailto:theadwaseemkhan@gmail.com" class="text-lg hover:underline">theadwaseemkhan@gmail.com</a>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <!-- Icon: Phone -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-300 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                        <a href="tel:+919336323361" class="text-lg hover:underline">+91-9336323361</a>
-                    </div>
+                <div class="grid grid-cols-1 gap-5">
+
+                    <a href="https://www.google.com/maps/search/?api=1&query=Barabanki,Uttar+Pradesh,India" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300 group">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Our Location</p>
+                            <address class="not-italic text-sm sm:text-base font-medium text-gray-900">Barabanki, Uttar Pradesh, India</address>
+                        </div>
+                    </a>
+
+                    <a href="mailto:theadwaseemkhan@gmail.com" class="flex items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300 group">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4 overflow-hidden">
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Email Us</p>
+                            <p class="text-sm sm:text-base font-medium text-gray-900 truncate">theadwaseemkhan@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <a href="tel:+919336323361" class="flex items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300 group">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Call Us</p>
+                            <p class="text-sm sm:text-base font-medium text-gray-900">+91-9336323361</p>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/919336323361" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-green-200 transition-all duration-300 group">
+                        <div class="flex-shrink-0 w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.374-5.03c0-5.445 4.431-9.88 9.888-9.88 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.444-4.437 9.88-9.885 9.88" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">WhatsApp</p>
+                            <p class="text-sm sm:text-base font-medium text-gray-900">Chat on WhatsApp</p>
+                        </div>
+                    </a>
+
                 </div>
             </div>
 

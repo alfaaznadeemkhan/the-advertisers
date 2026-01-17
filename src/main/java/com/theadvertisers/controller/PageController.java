@@ -1,16 +1,20 @@
 package com.theadvertisers.controller;
 
 import com.theadvertisers.entity.ContactMessage;
+import com.theadvertisers.service.TheAdvertisersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class PageController {
+
+    @Autowired
+    private TheAdvertisersService theadvertisersService;
 
 
     @GetMapping(path = "/home")
@@ -56,5 +60,19 @@ public class PageController {
         return "portfolio";
     }
 
+    // READ: Display the list
+    @GetMapping(path = "/report")
+    public String report(Model model) {
+        List<ContactMessage> contactMessages = theadvertisersService.fetchContactDetails();
+        model.addAttribute("contactMessages", contactMessages);
+        return "report";
+    }
+
+    // DELETE: Handle deletion
+    @GetMapping(path = "/report/delete/{id}")
+    public String deleteReport(@PathVariable("id") Long id) {
+        theadvertisersService.deleteContactMessage(id); // Ensure this method exists in your Service
+        return "redirect:/report";
+    }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Transactional
@@ -30,6 +31,20 @@ public class TheAdvertisersServiceImpl implements TheAdvertisersService {
                 .build();
 
         contactMessageRepository.save(entity);
+    }
+
+    @Override
+    public List<ContactMessage> fetchContactDetails() {
+
+        return contactMessageRepository.findAll();
+
+    }
+
+    @Override
+    public void deleteContactMessage(Long id) {
+
+        contactMessageRepository.deleteById(id);
+
     }
 
 
