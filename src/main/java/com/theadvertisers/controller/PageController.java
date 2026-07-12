@@ -60,19 +60,5 @@ public class PageController {
         return "portfolio";
     }
 
-    // READ: Display the list
-    @GetMapping(path = "/report")
-    public String report(Model model) {
-        List<ContactMessage> contactMessages = theadvertisersService.fetchContactDetails();
-        model.addAttribute("contactMessages", contactMessages);
-        return "report";
-    }
-
-    // DELETE: Handle deletion
-    @GetMapping(path = "/report/delete/{id}")
-    public String deleteReport(@PathVariable("id") Long id) {
-        theadvertisersService.deleteContactMessage(id); // Ensure this method exists in your Service
-        return "redirect:/report";
-    }
 
 }

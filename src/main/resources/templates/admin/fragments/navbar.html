@@ -1,0 +1,130 @@
+<nav th:fragment="navbar"
+     class="navbar-custom bg-white border-b border-gray-200 shadow-sm">
+  <div class="flex items-center justify-between h-20 px-8">
+
+    <!-- Left -->
+
+    <div class="flex items-center gap-5">
+
+      <!-- Mobile Menu -->
+
+      <button id="menuBtn"
+              class="lg:hidden w-11 h-11 rounded-xl bg-indigo-100 text-indigo-600">
+
+        <i class="fa-solid fa-bars"></i>
+
+      </button>
+
+      <div>
+
+        <div>
+
+          <h2 class="text-2xl font-bold text-gray-800"
+              th:text="${pageTitle} ?: 'Dashboard'">
+            Dashboard
+          </h2>
+
+          <p class="text-sm text-gray-500"
+             th:text="${pageSubtitle} ?: 'Welcome back, Administrator 👋'">
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Right -->
+
+    <div class="flex items-center gap-6">
+
+      <!-- Search -->
+
+      <div class="hidden xl:flex relative">
+
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+
+        <input
+
+                type="text"
+
+                placeholder="Search..."
+
+                class="w-72 h-12 rounded-xl border border-gray-200 bg-gray-50 pl-12 pr-4
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-indigo-500">
+
+      </div>
+
+      <!-- Date -->
+
+      <div class="hidden lg:block text-right">
+
+        <p class="text-xs text-gray-500">
+
+          Today
+
+        </p>
+
+        <h5 id="currentDate"
+            class="font-semibold">
+
+        </h5>
+
+      </div>
+
+      <!-- Notification -->
+
+      <button
+              class="relative w-12 h-12 rounded-xl bg-gray-100 hover:bg-indigo-100 transition">
+
+        <i class="fa-solid fa-bell text-gray-600"></i>
+
+        <span id="notificationBadge"
+
+              class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
+
+                    5
+
+                </span>
+
+      </button>
+
+      <!-- Profile -->
+
+      <div
+              class="flex items-center gap-4 bg-gray-50 rounded-2xl px-4 py-2 border">
+
+        <div
+                class="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow">
+
+          A
+
+        </div>
+
+        <div class="hidden md:block">
+
+          <h4 class="font-semibold text-gray-800">
+
+            Administrator
+
+          </h4>
+
+          <p class="text-xs text-gray-500">
+
+            Super Admin
+
+          </p>
+
+        </div>
+
+        <i class="fa-solid fa-chevron-down text-gray-400"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>

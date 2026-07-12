@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/fragments/head :: head('Dashboard')}"></head>
+
+<link rel="stylesheet" th:href="@{/admin/css/dashboard.css}">
+
+<body class="bg-gray-100">
+
+<div class="flex">
+
+    <!-- =========================
+            Sidebar
+    ========================== -->
+
+    <div id="sidebar"
+         th:replace="~{admin/fragments/sidebar :: sidebar}">
+    </div>
+
+    <!-- =========================
+            Main Content
+    ========================== -->
+
+    <div class="main flex-1">
+
+        <!-- Navbar -->
+
+        <div th:replace="~{admin/fragments/navbar :: navbar}">
+        </div>
+
+        <div class="p-8 mt-20">
+
+            <!-- =========================
+                    Welcome Card
+            ========================== -->
+
+            <div class="welcome-card fade-up">
+
+                <div class="flex items-center justify-between">
+
+                    <div>
+
+                        <h5 id="greeting"
+                            class="text-xl font-semibold">
+
+                            Good Evening
+
+                        </h5>
+
+                        <h1
+                                class="text-4xl font-bold mt-3">
+
+                            Welcome to
+
+                            <span class="text-cyan-200">
+
+                                The Advertisers
+
+                            </span>
+
+                        </h1>
+
+                        <p
+                                class="mt-4 text-indigo-100 max-w-2xl leading-8">
+
+                            Manage your advertising business,
+                            website content,
+                            enquiries,
+                            portfolio,
+                            services,
+                            blogs
+                            and everything from one premium dashboard.
+
+                        </p>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="hidden lg:flex justify-center items-center">
+
+                        <div
+                                class="w-52 h-52 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex items-center justify-center">
+
+                            <img th:src="@{/logo/tadlogo.png}"
+                                 alt="The Advertisers Logo"
+                                 class="w-40 h-40 rounded-full object-cover shadow-xl transition duration-500 hover:scale-105">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                Dashboard Cards
+            ========================== -->
+
+            <div
+                    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-8">
+                <!-- Services -->
+
+                <div class="dashboard-card fade-up">
+
+                    <div class="flex justify-between items-center">
+
+                        <div>
+
+                            <p class="text-gray-500">
+
+                                Total Services
+
+                            </p>
+
+                            <h2 class="counter text-4xl font-bold mt-3">
+
+                                <span th:text="${totalServices}">18</span>
+
+                            </h2>
+
+                            <p class="text-green-600 mt-3 font-medium">
+
+                                +2 Added this month
+
+                            </p>
+
+                        </div>
+
+                        <div class="card-icon bg-indigo">
+
+                            <i class="fa-solid fa-bullhorn"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Portfolio -->
+
+                <div class="dashboard-card fade-up">
+
+                    <div class="flex justify-between items-center">
+
+                        <div>
+
+                            <p class="text-gray-500">
+
+                                Portfolio
+
+                            </p>
+
+                            <h2 class="counter text-4xl font-bold mt-3">
+
+                                <span th:text="${totalPortfolio}">35</span>
+
+                            </h2>
+
+                            <p class="text-green-600 mt-3 font-medium">
+
+                                +4 New Projects
+
+                            </p>
+
+                        </div>
+
+                        <div class="card-icon bg-green">
+
+                            <i class="fa-solid fa-images"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Blogs -->
+
+                <div class="dashboard-card fade-up">
+
+                    <div class="flex justify-between items-center">
+
+                        <div>
+
+                            <p class="text-gray-500">
+
+                                Blogs
+
+                            </p>
+
+                            <h2 class="counter text-4xl font-bold mt-3">
+
+                                <span th:text="${totalBlogs}">12</span>
+
+                            </h2>
+
+                            <p class="text-green-600 mt-3 font-medium">
+
+                                +1 Published Today
+
+                            </p>
+
+                        </div>
+
+                        <div class="card-icon bg-orange">
+
+                            <i class="fa-solid fa-blog"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Enquiries -->
+
+                <div class="dashboard-card fade-up">
+
+                    <div class="flex justify-between items-center">
+
+                        <div>
+
+                            <p class="text-gray-500">
+
+                                Enquiries
+
+                            </p>
+
+                            <h2 class="counter text-4xl font-bold mt-3">
+
+                                <span th:text="${totalEnquiries}">58</span>
+
+                            </h2>
+
+                            <p class="text-red-500 mt-3 font-medium">
+
+                                5 Pending Response
+
+                            </p>
+
+                        </div>
+
+                        <div class="card-icon bg-red relative">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <span id="notificationBadge"
+                                  class="absolute -top-2 -right-2 bg-white text-red-500 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+
+                                5
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================
+                    Recent Enquiries
+            =========================== -->
+
+            <div class="table-card fade-up">
+
+                <div class="flex justify-between items-center mb-6">
+
+                    <div>
+
+                        <h2 class="text-2xl font-bold">
+
+                            Recent Enquiries
+
+                        </h2>
+
+                        <p class="text-gray-500 mt-1">
+
+                            Latest customer enquiries received.
+
+                        </p>
+
+                    </div>
+
+                    <a href="#"
+                       class="text-indigo-600 font-semibold hover:text-indigo-800">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+                <div class="overflow-x-auto">
+
+                    <table>
+
+                        <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <th>Phone</th>
+
+                            <th>Service</th>
+
+                            <th>Status</th>
+
+                            <th>Date</th>
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        <tr>
+
+                            <td>Rahul Sharma</td>
+
+                            <td>9876543210</td>
+
+                            <td>Audio Advertisement</td>
+
+                            <td>
+
+                                <span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm">
+
+                                    New
+
+                                </span>
+
+                            </td>
+
+                            <td>12 Jul 2026</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>ABC Traders</td>
+
+                            <td>9123456780</td>
+
+                            <td>Website Development</td>
+
+                            <td>
+
+                                <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm">
+
+                                    Pending
+
+                                </span>
+
+                            </td>
+
+                            <td>11 Jul 2026</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Royal Electronics</td>
+
+                            <td>9988776655</td>
+
+                            <td>Digital Marketing</td>
+
+                            <td>
+
+                                <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm">
+
+                                    Contacted
+
+                                </span>
+
+                            </td>
+
+                            <td>10 Jul 2026</td>
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+            <!-- ==========================
+              Bottom Section
+      =========================== -->
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+
+                <!-- Quick Actions -->
+
+                <div class="table-card fade-up">
+
+                    <h2 class="text-2xl font-bold mb-6">
+
+                        Quick Actions
+
+                    </h2>
+
+                    <div class="grid gap-4">
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-plus me-2"></i>
+
+                            Add Service
+
+                        </button>
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-image me-2"></i>
+
+                            Add Portfolio
+
+                        </button>
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-blog me-2"></i>
+
+                            Write Blog
+
+                        </button>
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-envelope me-2"></i>
+
+                            View Enquiries
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Business Overview -->
+
+                <div class="table-card fade-up">
+
+                    <h2 class="text-2xl font-bold mb-6">
+
+                        Business Overview
+
+                    </h2>
+
+                    <div class="space-y-6">
+
+                        <div>
+
+                            <div class="flex justify-between mb-2">
+
+                                <span>Website Development</span>
+
+                                <span>85%</span>
+
+                            </div>
+
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+
+                                <div class="bg-indigo-600 h-3 rounded-full w-[85%]"></div>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <div class="flex justify-between mb-2">
+
+                                <span>Audio Advertisement</span>
+
+                                <span>70%</span>
+
+                            </div>
+
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+
+                                <div class="bg-green-500 h-3 rounded-full w-[70%]"></div>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <div class="flex justify-between mb-2">
+
+                                <span>Digital Marketing</span>
+
+                                <span>60%</span>
+
+                            </div>
+
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+
+                                <div class="bg-orange-500 h-3 rounded-full w-[60%]"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Admin Info -->
+
+                <div class="table-card fade-up">
+
+                    <div class="text-center">
+
+                        <img th:src="@{/logo/tadlogo.png}"
+                             class="w-24 h-24 mx-auto rounded-full shadow-lg">
+
+                        <h2 class="text-2xl font-extrabold text-black mt-5">
+                            Administrator
+                        </h2>
+
+                        <p class="text-gray-500 mt-2">
+
+                            The Advertisers
+
+                        </p>
+
+                        <div class="mt-6 space-y-3 text-left">
+
+                            <div class="flex justify-between">
+
+                                <span>Role</span>
+
+                                <strong>Super Admin</strong>
+
+                            </div>
+
+                            <div class="flex justify-between">
+
+                                <span>Status</span>
+
+                                <span class="text-green-600 font-semibold">
+
+                                    ● Online
+
+                                </span>
+
+                            </div>
+
+                            <div class="flex justify-between">
+
+                                <span>Last Login</span>
+
+                                <strong>Today</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+
+            <div class="mt-10 text-center text-gray-500">
+
+                © 2026 The Advertisers. All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Dashboard JS -->
+
+<script th:src="@{/admin/js/dashboard.js}"></script>
+
+</body>
+
+</html>

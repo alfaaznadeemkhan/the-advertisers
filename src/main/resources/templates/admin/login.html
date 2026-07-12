@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/fragments/head :: head('Login')}"></head>
+
+<link rel="stylesheet" th:href="@{/admin/css/login.css}">
+
+<body>
+
+<div class="login-bg">
+
+  <!-- Background Blobs -->
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="min-h-screen flex items-center justify-center px-6 py-10">
+
+    <div class="max-w-7xl w-full grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- ===================================== -->
+      <!-- LEFT SIDE -->
+      <!-- ===================================== -->
+
+      <div class="hidden lg:flex flex-col justify-center">
+
+        <div class="flex justify-center mb-8">
+
+          <img th:src="@{/logo/tadlogo.png}"
+               class="logo shadow-2xl ring-4 ring-white/20 hover:scale-105 transition duration-300">
+
+        </div>
+
+        <div class="mb-8">
+
+          <h1 class="text-6xl font-extrabold leading-none text-center">
+
+            <span class="text-white">THE</span>
+
+            <span
+                    class="bg-gradient-to-r from-cyan-300 via-white to-purple-300 bg-clip-text text-transparent">
+
+        ADVERTISERS
+
+    </span>
+
+          </h1>
+
+          <div class="mt-4 flex justify-center items-center gap-3">
+
+            <div class="w-16 h-1 rounded-full bg-cyan-300"></div>
+
+            <span class="uppercase tracking-[6px] text-cyan-200 text-sm font-semibold">
+
+        Since 1986
+
+    </span>
+
+            <div class="w-16 h-1 rounded-full bg-cyan-300"></div>
+
+          </div>
+
+        </div>
+
+        <p class="brand-subtitle text-center max-w-xl mx-auto">
+
+          Grow your business with professional advertising
+          solutions designed to increase your reach,
+          strengthen your brand and generate more customers.
+
+        </p>
+
+        <div class="mt-12 space-y-5">
+
+          <div class="feature-box">
+
+            <div class="feature-icon">
+
+              <i class="fa-solid fa-bullhorn"></i>
+
+            </div>
+
+            <div>
+
+              <div class="feature-title">
+
+                Audio Advertisement
+
+              </div>
+
+              <div class="feature-text">
+
+                Professional audio promotions across cities.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="feature-box">
+
+            <div class="feature-icon">
+
+              <i class="fa-solid fa-globe"></i>
+
+            </div>
+
+            <div>
+
+              <div class="feature-title">
+
+                Website Development
+
+              </div>
+
+              <div class="feature-text">
+
+                Responsive websites for modern businesses.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="feature-box">
+
+            <div class="feature-icon">
+
+              <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <div>
+
+              <div class="feature-title">
+
+                Digital Marketing
+
+              </div>
+
+              <div class="feature-text">
+
+                SEO, Social Media & Online Branding.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="feature-box">
+
+            <div class="feature-icon">
+
+              <i class="fa-solid fa-tv"></i>
+
+            </div>
+
+            <div>
+
+              <div class="feature-title">
+
+                LED Advertisement
+
+              </div>
+
+              <div class="feature-text">
+
+                Outdoor digital display advertising.
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="stats">
+
+          <div class="stat">
+
+            <h2>20+</h2>
+
+            <p>Years Experience</p>
+
+          </div>
+
+          <div class="stat">
+
+            <h2>1000+</h2>
+
+            <p>Clients</p>
+
+          </div>
+
+          <div class="stat">
+
+            <h2>5000+</h2>
+
+            <p>Campaigns</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ===================================== -->
+      <!-- RIGHT SIDE -->
+      <!-- ===================================== -->
+
+      <div>
+
+        <div class="login-card">
+
+          <div class="text-center">
+
+            <img src="/logo/tadlogo.png"
+                 class="logo mx-auto">
+
+            <h2 class="text-4xl font-bold mt-6 text-gray-800">
+
+              Welcome Back
+
+            </h2>
+
+            <p class="text-gray-500 mt-3">
+
+              Login to your Admin Dashboard
+
+            </p>
+
+          </div>
+          <!-- Alerts -->
+
+          <div th:if="${param.error}"
+               class="alert alert-error mt-8">
+
+            <i class="fa-solid fa-circle-exclamation me-2"></i>
+
+            Invalid username/email or password.
+
+          </div>
+
+          <div th:if="${param.logout}"
+               class="alert alert-success mt-8">
+
+            <i class="fa-solid fa-circle-check me-2"></i>
+
+            You have been logged out successfully.
+
+          </div>
+
+          <!-- Login Form -->
+
+          <form id="loginForm"
+                th:action="@{/admin/login}"
+                method="post"
+                class="mt-8">
+
+            <!-- Username -->
+
+            <div class="input-group">
+
+              <label class="input-label">
+
+                Username / Email
+
+              </label>
+
+              <div class="relative">
+
+                <i class="fa-solid fa-user absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"></i>
+
+                <input
+                        id="username"
+                        class="input !pl-14"
+                        type="text"
+                        name="username"
+                        placeholder="Enter Username or Email"
+                        autocomplete="username"
+                        required>
+
+              </div>
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="input-group">
+
+              <label class="input-label">
+
+                Password
+
+              </label>
+
+              <div class="relative">
+
+                <i class="fa-solid fa-lock absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10"></i>
+
+                <input
+                        id="password"
+                        class="input !pl-14 !pr-14"
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        autocomplete="current-password"
+                        required>
+
+                <button
+                        type="button"
+                        id="togglePassword"
+                        class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-indigo-600">
+
+                  <i id="toggleIcon" class="fa-solid fa-eye"></i>
+
+                </button>
+
+              </div>
+
+            </div>
+
+            <!-- Remember -->
+
+            <div class="flex items-center justify-between mt-6">
+
+              <label class="flex items-center gap-3 cursor-pointer">
+
+                <input
+
+                        type="checkbox"
+
+                        class="rounded border-gray-300">
+
+                <span class="text-gray-600">
+
+                                    Remember Me
+
+                                </span>
+
+              </label>
+
+              <a href="#"
+
+                 class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold">
+
+                Forgot Password?
+
+              </a>
+
+            </div>
+
+            <!-- Login Button -->
+
+            <button
+
+                    id="loginButton"
+
+                    type="submit"
+
+                    class="login-btn">
+
+              <i class="fa-solid fa-right-to-bracket me-2"></i>
+
+              Secure Login
+
+            </button>
+
+          </form>
+
+          <!-- Divider -->
+
+          <div class="flex items-center my-8">
+
+            <div class="flex-1 border-t border-gray-200"></div>
+
+            <span class="px-4 text-sm text-gray-400">
+
+                            Secure Administration Portal
+
+                        </span>
+
+            <div class="flex-1 border-t border-gray-200"></div>
+
+          </div>
+
+          <!-- Footer -->
+
+          <div class="text-center">
+
+            <p class="text-gray-500 text-sm">
+
+              © 2026 <strong>The Advertisers</strong>
+
+            </p>
+
+            <p class="text-xs text-gray-400 mt-2">
+
+              Advertising • Branding • Website Development • Digital Marketing
+
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ===========================
+     Login Page Script
+=========================== -->
+
+<script th:src="@{/admin/js/login.js}"></script>
+
+</body>
+
+</html>
