@@ -135,9 +135,15 @@ Main Content
 =============================== */
 
 .main{
+
+    flex:1;
+
     margin-left:320px;
+
     min-height:100vh;
+
     background:#F5F7FB;
+
 }
 
 /* ===============================
